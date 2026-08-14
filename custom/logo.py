@@ -23,6 +23,10 @@ from manimlib.animation.transform import Transform
 from manimlib.animation.composition import AnimationGroup
 from manimlib.animation.composition import LaggedStartMap
 from manimlib.animation.creation import Write
+from manimlib.animation.rotation import Rotate
+from manimlib.animation.fading import VFadeIn
+from manimlib.animation.update import UpdateFromAlphaFunc
+from manimlib.mobject.mobject import Mobject
 
 
 class Logo(VMobject):
@@ -163,7 +167,6 @@ class Logo(VMobject):
             fill_opacity=1,
             stroke_width=0,
             stroke_color=BLACK,
-            sheen=0.0,
         )
         self.pupil.rotate(90 * DEGREES)
         self.add(self.pupil)
@@ -214,7 +217,7 @@ class LogoGenerationTemplate(Scene):
         frame.shift(DOWN)
 
         self.logo = Logo()
-        name = Text("3Blue1Brown")
+        name = Text("NINE")
         name.scale(2.5)
         name.next_to(self.logo, DOWN, buff=MED_LARGE_BUFF)
         name.set_gloss(0.2)
@@ -435,7 +438,7 @@ class LogoGenerationFivefold(LogoGenerationTemplate):
         logo = self.logo
         iris, spike_layers, pupil = logo
 
-        name = OldTexText("3Blue1Brown")
+        name = TexText("3Blue1Brown")
         name.scale(2.5)
         name.next_to(logo, DOWN, buff=MED_LARGE_BUFF)
         name.set_gloss(0.2)
@@ -479,8 +482,8 @@ class LogoGenerationFivefold(LogoGenerationTemplate):
 
 class Vertical3B1B(Scene):
     def construct(self):
-        words = OldTexText(
-            "3", "Blue", "1", "Brown",
+        words = TexText(
+            "N", "I", "N", "E",
         )
         words.scale(2)
         words[::2].scale(1.2)
